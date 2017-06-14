@@ -14,12 +14,12 @@ import org.slf4j.LoggerFactory;
  * not be clear why you are seeing certain changes in behaviour.
  * <p/>
  * There are many ways to implement the Singleton. The first one is the eagerly initialized instance
- * in {@link IvoryTower}. Eager initialization implies that the implementation is thread safe. If
+ * in {@link Singleton}. Eager initialization implies that the implementation is thread safe. If
  * you can afford giving up control of the instantiation moment, then this implementation will suit
  * you fine.
  * <p/>
  * The other option to implement eagerly initialized Singleton is enum based Singleton. The example
- * is found in {@link EnumIvoryTower}. At first glance the code looks short and simple. However, you
+ * is found in {@link SingletonEnum}. At first glance the code looks short and simple. However, you
  * should be aware of the downsides including committing to implementation strategy, extending the
  * enum class, serializability and restrictions to coding. These are extensively discussed in Stack
  * Overflow:
@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
  * only the method internals on specific conditions.
  * <p/>
  * Yet another way to implement thread safe lazily initialized Singleton can be found in
- * {@link InitializingOnDemandHolderIdiom}. However, this implementation requires at least Java 8
+ * {@link SingletonHolder}. However, this implementation requires at least Java 8
  * API level to work.
  */
 public class App {
@@ -51,8 +51,8 @@ public class App {
   public static void main(String[] args) {
 
     // eagerly initialized singleton
-    IvoryTower ivoryTower1 = IvoryTower.getInstance();
-    IvoryTower ivoryTower2 = IvoryTower.getInstance();
+    Singleton ivoryTower1 = Singleton.getInstance();
+    Singleton ivoryTower2 = Singleton.getInstance();
     LOGGER.info("ivoryTower1={}", ivoryTower1);
     LOGGER.info("ivoryTower2={}", ivoryTower2);
 
@@ -65,8 +65,8 @@ public class App {
     LOGGER.info("threadSafeIvoryTower2={}", threadSafeIvoryTower2);
 
     // enum singleton
-    EnumIvoryTower enumIvoryTower1 = EnumIvoryTower.INSTANCE;
-    EnumIvoryTower enumIvoryTower2 = EnumIvoryTower.INSTANCE;
+    SingletonEnum enumIvoryTower1 = SingletonEnum.INSTANCE;
+    SingletonEnum enumIvoryTower2 = SingletonEnum.INSTANCE;
     LOGGER.info("enumIvoryTower1={}", enumIvoryTower1);
     LOGGER.info("enumIvoryTower2={}", enumIvoryTower2);
 
@@ -77,11 +77,11 @@ public class App {
     LOGGER.info(dcl2.toString());
 
     // initialize on demand holder idiom
-    InitializingOnDemandHolderIdiom demandHolderIdiom =
-        InitializingOnDemandHolderIdiom.getInstance();
+    SingletonHolder demandHolderIdiom =
+        SingletonHolder.getInstance();
     LOGGER.info(demandHolderIdiom.toString());
-    InitializingOnDemandHolderIdiom demandHolderIdiom2 =
-        InitializingOnDemandHolderIdiom.getInstance();
+    SingletonHolder demandHolderIdiom2 =
+        SingletonHolder.getInstance();
     LOGGER.info(demandHolderIdiom2.toString());
   }
 }

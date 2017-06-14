@@ -3,7 +3,7 @@ package com.yz.singleton;
 /**
  * Enum based singleton implementation. Effective Java 2nd Edition (Joshua Bloch) p. 18
  */
-public enum EnumIvoryTower {
+public enum SingletonEnum {
 
   INSTANCE;
 

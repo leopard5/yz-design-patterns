@@ -13,17 +13,17 @@ package com.yz.singleton;
  * language constructs (i.e. volatile or synchronized).
  *
  */
-public final class InitializingOnDemandHolderIdiom {
+public final class SingletonHolder {
 
   /**
    * Private constructor.
    */
-  private InitializingOnDemandHolderIdiom() {}
+  private SingletonHolder() {}
 
   /**
    * @return Singleton instance
    */
-  public static InitializingOnDemandHolderIdiom getInstance() {
+  public static SingletonHolder getInstance() {
     return HelperHolder.INSTANCE;
   }
 
@@ -31,7 +31,7 @@ public final class InitializingOnDemandHolderIdiom {
    * Provides the lazy-loaded Singleton instance.
    */
   private static class HelperHolder {
-    private static final InitializingOnDemandHolderIdiom INSTANCE =
-        new InitializingOnDemandHolderIdiom();
+    private static final SingletonHolder INSTANCE =
+        new SingletonHolder();
   }
 }
