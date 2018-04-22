@@ -12,28 +12,27 @@ import org.slf4j.LoggerFactory;
  * <p>
  * In this example we have sentences composed of words composed of letters. All of the objects can
  * be treated through the same interface ({@link LetterComposite}).
- * 
  */
 public class App {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-  /**
-   * Program entry point
-   * 
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-    LOGGER.info("Message from the orcs: ");
+    /**
+     * Program entry point
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
+        LOGGER.info("Message from the orcs: ");
 
-    LetterComposite orcMessage = new Messenger().messageFromOrcs();
-    orcMessage.print();
+        LetterComposite orcMessage = new Messenger().messageFromOrcs();
+        orcMessage.print();
 
-    LOGGER.info("\n");
+        LOGGER.info("\n");
 
-    LOGGER.info("Message from the elves: ");
+        LOGGER.info("Message from the elves: ");
 
-    LetterComposite elfMessage = new Messenger().messageFromElves();
-    elfMessage.print();
-  }
+        LetterComposite elfMessage = new Messenger().messageFromElves();
+        elfMessage.print();
+    }
 }

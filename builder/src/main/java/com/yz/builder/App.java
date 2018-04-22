@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
  * The intention of the Builder pattern is to find a solution to the telescoping constructor
  * anti-pattern. The telescoping constructor anti-pattern occurs when the increase of object
  * constructor parameter combination leads to an exponential list of constructors. Instead of using
@@ -26,34 +25,33 @@ import org.slf4j.LoggerFactory;
  * additional configuration for the {@link Hero} object can be done using the fluent
  * {@link Builder} interface. When configuration is ready the build method is called to receive
  * the final {@link Hero} object.
- * 
  */
 public class App {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-  /**
-   * Program entry point
-   * 
-   * @param args command line args
-   */
-  public static void main(String[] args) {
+    /**
+     * Program entry point
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
 
-    Hero mage =
-        new Hero.Builder(Profession.MAGE, "Riobard").withHairColor(HairColor.BLACK)
-            .withWeapon(Weapon.DAGGER).build();
-    LOGGER.info(mage.toString());
+        Hero mage =
+                new Hero.Builder(Profession.MAGE, "Riobard").withHairColor(HairColor.BLACK)
+                        .withWeapon(Weapon.DAGGER).build();
+        LOGGER.info(mage.toString());
 
-    Hero warrior =
-        new Hero.Builder(Profession.WARRIOR, "Amberjill").withHairColor(HairColor.BLOND)
-            .withHairType(HairType.LONG_CURLY).withArmor(Armor.CHAIN_MAIL).withWeapon(Weapon.SWORD)
-            .build();
-    LOGGER.info(warrior.toString());
+        Hero warrior =
+                new Hero.Builder(Profession.WARRIOR, "Amberjill").withHairColor(HairColor.BLOND)
+                        .withHairType(HairType.LONG_CURLY).withArmor(Armor.CHAIN_MAIL).withWeapon(Weapon.SWORD)
+                        .build();
+        LOGGER.info(warrior.toString());
 
-    Hero thief =
-        new Hero.Builder(Profession.THIEF, "Desmond").withHairType(HairType.BALD)
-            .withWeapon(Weapon.BOW).build();
-    LOGGER.info(thief.toString());
+        Hero thief =
+                new Hero.Builder(Profession.THIEF, "Desmond").withHairType(HairType.BALD)
+                        .withWeapon(Weapon.BOW).build();
+        LOGGER.info(thief.toString());
 
-  }
+    }
 }
