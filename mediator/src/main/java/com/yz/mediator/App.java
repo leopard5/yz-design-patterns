@@ -33,6 +33,7 @@ public class App {
 
     // create party and members
     Party party = new PartyImpl();
+
     Hobbit hobbit = new Hobbit();
     Wizard wizard = new Wizard();
     Rogue rogue = new Rogue();

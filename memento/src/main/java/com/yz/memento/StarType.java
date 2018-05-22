@@ -6,9 +6,12 @@ package com.yz.memento;
  *
  */
 public enum StarType {
-
-  SUN("sun"), RED_GIANT("red giant"), WHITE_DWARF("white dwarf"), SUPERNOVA("supernova"), DEAD(
-      "dead star"), UNDEFINED("");
+  SUN("sun"),
+  RED_GIANT("red giant"),
+  WHITE_DWARF("white dwarf"),
+  SUPERNOVA("supernova"),
+  DEAD("dead star"),
+  UNDEFINED("");
 
   private String title;
 

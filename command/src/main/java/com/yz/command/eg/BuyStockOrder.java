@@ -4,9 +4,9 @@ package com.yz.command.eg;
  * ConcreteCommand Class.
  */
 public class BuyStockOrder implements Order {
-    private StockTrade stock;
+    private Stock stock;
 
-    public BuyStockOrder(StockTrade st) {
+    public BuyStockOrder(Stock st) {
         stock = st;
     }
 
